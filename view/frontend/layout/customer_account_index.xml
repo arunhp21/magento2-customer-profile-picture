@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Arun
+ * @package Arun_CustomerProfile
+ * @copyright Copyright (c) 2023 Arun
+ * @author Arun
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Customer\Block\Account\Dashboard\Info" name="customer_account_dashboard_info" as="info" template="Magento_Customer::account/dashboard/info.phtml" cacheable="false">
+                <container name="customer.account.dashboard.info.extra">
+                    <block class="Arun\CustomerProfile\Block\Customer\Account" name="customer.account.dashboard.info.extra.username.login" template="Arun_CustomerProfile::account/dashboard/info.phtml" ifconfig="customerProfile/general/enable"/>
+                </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Arun
+ * @package Arun_CustomerProfile
+ * @copyright Copyright (c) 2023 Arun
+ * @author Arun
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Arun_CustomerProfile" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_Customer"/>
+            <module name="Magento_Review"/>
+        </sequence>
+    </module>
+</config>

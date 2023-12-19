@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Arun
+ * @package Arun_CustomerProfile
+ * @copyright Copyright (c) 2023 Arun
+ * @author Arun
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<system>
+<tab id="customerProfile" translate="label" sortOrder="5">
+    <label>Arun Customer Profile</label>
+</tab>
+<section id="customerProfile" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Customer Profile</label>
+        <tab>customerProfile</tab>
+        <resource>Arun_CustomerProfile::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Status</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

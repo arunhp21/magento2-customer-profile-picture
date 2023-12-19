@@ -1,0 +1,23 @@
+<?php 
+/**
+ * @category Arun
+ * @package Arun_CustomerProfile
+ * @copyright Copyright (c) 2023 Arun
+ * @author Arun
+ */
+
+/**
+ * @var Arun\CustomerProfile\Block\Customer\Account $block
+ */
+?>
+<legend class="legend">
+    <span><?php echo __('Additional Information') ?></span>
+</legend>
+<?php if ($url = $block->getFileUrl()): ?>
+<div class="field">
+    <img width="100" height="100" src="<?php echo $url ?>" alt="Profile Image" />
+</div>
+<?php endif;?>
+<div class="control">
+    <input type="file" name="customer_profile" id="customer_profile" title="<?php echo __('Profile Image') ?>" class="input-text" data-validate="{required:false}">
+</div>
