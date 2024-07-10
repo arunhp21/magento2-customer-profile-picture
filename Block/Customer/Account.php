@@ -18,27 +18,27 @@ use Magento\Framework\View\Asset\Repository;
 class Account extends Template
 {    
     /**
-     * @var Magento\Framework\UrlInterface
+     * @var UrlInterface
      */
     protected $urlBuilder;
 
     /**
-     * @var Magento\Customer\Model\SessionFactory
+     * @var SessionFactory
      */
     protected $customerSession;
 
     /**
-     * @var Magento\Store\Model\StoreManagerInterface
+     * @var StoreManagerInterface
      */
     protected $storeManager;
 
     /**
-     * @var Magento\Customer\Model\Customer
+     * @var Customer
      */
     protected $customerModel;
 
     /**
-     * @var \Magento\Framework\View\Asset\Repository
+     * @var Repository
      */
     protected $assetRepo;
 
@@ -73,36 +73,72 @@ class Account extends Template
         $this->setCollection($collection);
     }
     
+    /**
+     * Get base URL of the store.
+     *
+     * @return string
+     */
     public function getBaseUrl()
     {
         return $this->storeManager->getStore()->getBaseUrl();
     }
 
+    /**
+     * Get base media URL of the store.
+     *
+     * @return string
+     */
     public function getMediaUrl()
     {
         return $this->getBaseUrl() . 'pub/media/';
     }
 
+    /**
+     * Get full URL of the customer's image.
+     *
+     * @param string $filePath
+     * @return string
+     */
     public function getCustomerImageUrl($filePath)
     {
         return $this->getMediaUrl() . 'customer' . $filePath;
     }
 
+    /**
+     * Get customer data model.
+     *
+     * @return Customer
+     */
     public function getCustomerData()
     {
         return $this->customerModel;
     }
 
+    /**
+     * Get URL of the default image.
+     *
+     * @return string
+     */
     public function getDefaultImage()
     {
         return $this->assetRepo->getUrl('Magento_Catalog::images/product/placeholder/image.jpg');
     }
 
+    /**
+     * Get current customer ID from session.
+     *
+     * @return int
+     */
     public function getCurrentCustomer()
     {
         return $this->customerSession->getId();
     }
 
+    /**
+     * Get URL of the customer's profile file.
+     *
+     * @return string|false
+     */
     public function getFileUrl()
     {
         $customerData = $this->customerModel->load($this->customerSession->getId());
